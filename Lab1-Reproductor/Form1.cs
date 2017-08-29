@@ -82,9 +82,9 @@ namespace Lab1_Reproductor
         private void button5_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
-            PlayList.OrderBy(song => song.songName);
+            var newList = PlayList.OrderBy(song => song.songName).ToList();
 
-            foreach(Song song in PlayList)
+            foreach(Song song in newList)
             {
                 listBox2.Items.Add("NOMBRE: " + song.songName + "|" + string.Format(" DURACIÓN: {0} minutos y {1} segundos", song.songDuration.Minutes, song.songDuration.Seconds));
             }
@@ -94,9 +94,32 @@ namespace Lab1_Reproductor
         {
             listBox2.Items.Clear();
 
-            PlayList.OrderByDescending(song=> song.songName);
+            var newList = PlayList.OrderByDescending(song => song.songName).ToList();
 
-            foreach (Song song in PlayList)
+            foreach (Song song in newList)
+            {
+                listBox2.Items.Add("NOMBRE: " + song.songName + "|" + string.Format(" DURACIÓN: {0} minutos y {1} segundos", song.songDuration.Minutes, song.songDuration.Seconds));
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            var newList = PlayList.OrderBy(song => song.songDuration).ToList();
+
+            foreach (Song song in newList)
+            {
+                listBox2.Items.Add("NOMBRE: " + song.songName + "|" + string.Format(" DURACIÓN: {0} minutos y {1} segundos", song.songDuration.Minutes, song.songDuration.Seconds));
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+
+            var newList = PlayList.OrderByDescending(song => song.songDuration).ToList();
+
+            foreach (Song song in newList)
             {
                 listBox2.Items.Add("NOMBRE: " + song.songName + "|" + string.Format(" DURACIÓN: {0} minutos y {1} segundos", song.songDuration.Minutes, song.songDuration.Seconds));
             }
